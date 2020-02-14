@@ -1,6 +1,6 @@
 #include<stdio.h>
 #include<string.h>
-char list[11][11]={"零","一","二","三","四","五","六","七","八","九","十"}; 
+char list[11][3]={"零","一","二","三","四","五","六","七","八","九","十"}; 
 int swap(char a[]){
     int i;
     for(i=0;i<11;i++){
@@ -41,11 +41,20 @@ int main(){
             break;
 		 } 
     } 
-	scanf("%s %s %s %s %s %s %s %s %s %s",a,b,c,d,e,f,g,h,i,j);
-		
-		if(sum>swap(d))
-			{printf("你好，世界");}
-			else
-			{printf("冻死我了");}
+	scanf("%s %s %s %s %s %s %s %s %s %s",a,b,c,d,e,f,g,h,i,j); // b变量 c符号 g句1 j句2 
+	if (!strcmp(c,"大于")) { // 符号为大于 
+         if (sum > swap(d)) { // 只考虑中文双引号 
+         	for (int i = 2; i < strlen(g)-2; i++) printf("%c", g[i]);
+		 } else {
+		 	for (int i = 2; i < strlen(j)-2; i++) printf("%c", j[i]);
+		 }
+    } else if (!strcmp(c,"小于")) {
+        if (sum < swap(d)) { // 只考虑中文双引号 
+         	for (int i = 2; i < strlen(g)-2; i++) printf("%c", g[i]);
+		 } else {
+		 	for (int i = 2; i < strlen(j)-2; i++) printf("%c", j[i]);
+		 }
+    } 
+
 	return 0;       
 }
